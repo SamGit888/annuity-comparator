@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Annuity Product Comparator</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Indexed annuity analysis</p>
+          <h1>Product Comparator</h1>
+        </div>
+        <button class="primary-button" id="addProductButton" type="button">Add Product</button>
+      </header>
+
+      <section class="workspace">
+        <aside class="input-panel" aria-label="Product inputs">
+          <div class="panel-heading">
+            <h2>Products</h2>
+            <p>Enter annual crediting terms. Rates are percentages.</p>
+          </div>
+          <div id="productForms" class="product-forms"></div>
+        </aside>
+
+        <section class="results-panel" aria-label="Comparison results">
+          <div class="summary-strip">
+            <div>
+              <p class="label">Recommendation</p>
+              <h2 id="recommendationTitle">Balanced Growth</h2>
+              <p id="recommendationText">Adjust the products to see the current best fit.</p>
+            </div>
+            <div class="score-card">
+              <span class="label">Lead Score</span>
+              <strong id="leadScore">0.0</strong>
+            </div>
+          </div>
+
+          <div class="chart-grid">
+            <section class="chart-panel">
+              <div class="chart-header">
+                <div>
+                  <p class="label">Scenario payoff</p>
+                  <h3>One-year credited return</h3>
+                </div>
+                <select id="marketSelect" aria-label="Market scenario"></select>
+              </div>
+              <div id="payoffChart" class="chart"></div>
+            </section>
+
+            <section class="chart-panel">
+              <div class="chart-header">
+                <div>
+                  <p class="label">Risk / reward</p>
+                  <h3>Scenario averages</h3>
+                </div>
+              </div>
+              <div id="barChart" class="chart"></div>
+            </section>
+          </div>
+
+          <section class="comparison-section">
+            <div class="section-heading">
+              <div>
+                <p class="label">Side-by-side</p>
+                <h3>Product comparison</h3>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Type</th>
+                    <th>Dual Direction</th>
+                    <th>Cap</th>
+                    <th>Participation</th>
+                    <th>Buffer</th>
+                    <th>Floor</th>
+                    <th>Avg Scenario</th>
+                    <th>Downside Avg</th>
+                    <th>Score</th>
+                  </tr>
+                </thead>
+                <tbody id="comparisonRows"></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
